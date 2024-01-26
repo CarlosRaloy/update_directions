@@ -49,7 +49,6 @@ def update_dates(city, state_id, street, street2, zip_code, id_partner):
     return sql_query
 
 
-
 my_connection.connnect(update_dates('LOS MOCHIS',507, 'CARDENAS 55 ENTRE ALLENDE Y DEGOLLADO',
                                     'CENTRO','81200',107056))
 
