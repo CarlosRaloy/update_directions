@@ -31,24 +31,27 @@ class Credentials_database:
                 cursor.close()
                 conn.close()
 
-my_connection = Credentials_database("root_carlos", "r00t_c4rl0s_.Re4d0nly+",
-                                     "raloy_productivo", "10.150.4.190", "5432")
-def update_dates(city, state_id, street, street2, zip_code, id_partner):
-    sql_query = f"""
-        UPDATE public.res_partner
-        SET
-          city = '{city}',
-          state_id = {state_id},
-          street = '{street}',
-          street2 = '{street2}',
-          zip = '{zip_code}'
-        WHERE
-          id = {id_partner};
-        """
-    print("Query Exitoso")
-    return sql_query
+    def update_dates(self, city, state_id, street, street2, zip_code, id_partner):
+        sql_query = f"""
+            UPDATE public.res_partner
+            SET
+              city = '{city}',
+              state_id = {state_id},
+              street = '{street}',
+              street2 = '{street2}',
+              zip = '{zip_code}'
+            WHERE
+              id = {id_partner};
+            """
+        print("Query Exitoso")
+        return sql_query
 
 
-my_connection.connnect(update_dates('LOS MOCHIS',507, 'CARDENAS 55 ENTRE ALLENDE Y DEGOLLADO',
-                                    'CENTRO','81200',107056))
+#Notes: Productive database
+"""my_connection = Credentials_database("root_carlos", "r00t_c4rl0s_.Re4d0nly+",
+                                     "raloy_productivo", "10.150.4.190", "5432")"""
 
+""" Example from call to update_dates
+my_connection.connnect(my_connection.update_dates('Ciudad K',1, 'Call1 One',
+                                    'CENTRO','8000',1))
+"""
