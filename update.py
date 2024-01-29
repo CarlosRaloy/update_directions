@@ -48,8 +48,8 @@ class Credentials_database:
 
 
 #Notes: Productive database
-"""my_connection = Credentials_database("root_carlos", "r00t_c4rl0s_.Re4d0nly+",
-                                     "raloy_productivo", "10.150.4.190", "5432")"""
+"""my_connection = Credentials_database("root", "root",
+                                     "localhost", "localhost", "5432")"""
 
 """ Example from call to update_dates
 my_connection.connnect(my_connection.update_dates('Ciudad K',1, 'Call1 One',
