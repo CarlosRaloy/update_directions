@@ -1,6 +1,8 @@
 import tkinter as tk
 from tkinter import ttk
 from ttkthemes import ThemedStyle
+from dotenv import load_dotenv
+import os
 # ----- My Modules -----
 from get_file import Get_information
 from update import Credentials_database
@@ -11,8 +13,10 @@ def start_process():
     csv = Get_information()
     list_file = csv.convert_csv_file(int(start.get()), int(finish.get()))
 
-    # Important: Connection in the database
-    my_connection = Credentials_database("root", "root", "test_raloy", "10.150.41.114", "5432")
+    # Important: Connection in the database [Config in the file .env]
+    load_dotenv()
+    my_connection = Credentials_database(os.getenv("USER_DB"), os.getenv("PASSWORD_DB"), os.getenv("DATABASE_DB"),
+                                         os.getenv("HOST_DB"),  os.getenv("PORT_DB"))
 
     for i in list_file:
         print(F"Num. Dato: {i['Contador']}")
@@ -22,8 +26,8 @@ def start_process():
 
 if __name__ == "__main__":
     window = tk.Tk()
-    window.title("Actualizacion de determinantes")
-    window.geometry("300x200")
+    window.title(".:: 🚚 Actualizacion de determinantes ::.")
+    window.geometry("350x250")
     window.configure(bg="white")
 
     style = ThemedStyle(window)
