@@ -1,5 +1,7 @@
 import os
 import pandas as pd
+
+
 class Get_information:
     def read_csv(self):
         try:
@@ -11,11 +13,12 @@ class Get_information:
         except OSError:
             print("❌ No se encontro un archivo csv")
 
-    def convert_csv_file(self,start_counter, end_counter):
+    def convert_csv_file(self, start_counter, end_counter):
         try:
             csv_path = self.read_csv()
             if csv_path is None:
-                raise ValueError("❌ La función read_csv() devolvió None. Asegúrate de proporcionar una ruta de archivo válida.")
+                raise ValueError("❌ La función read_csv() devolvió None. "
+                                 "Asegúrate de proporcionar una ruta de archivo válida.")
 
             df = pd.read_csv(csv_path)
             if start_counter is not None and end_counter is not None:
