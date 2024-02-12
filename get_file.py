@@ -24,9 +24,11 @@ class Get_information:
             if start_counter is not None and end_counter is not None:
                 df = df[(df['Contador'] >= start_counter) & (df['Contador'] <= end_counter)]
 
+            df['zip'] = df['zip'].astype(str).str.rstrip('.0')
+
             data_dict = df.to_dict(orient='records')
             print("⚙️ Contenido del archivo CSV convertido a diccionario")
-            #print(data_dict)
+            print(data_dict)
             return data_dict
         except OSError as e:
             print(f"No se pudo crear el diccionario. Error: {e}")
